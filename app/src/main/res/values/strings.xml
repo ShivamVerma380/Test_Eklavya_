@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Test_Eklavya</string>
+    <string-array name="MentorOrMentee">
+        <item>Mentor</item>
+        <item>Mentee</item>
+    </string-array>
+    <string-array name="Fields">
+        <item>Software Engineer</item>
+        <item>Web Developer</item>
+        <item>Hardware Engineer</item>
+        <item>Computer Programmer</item>
+        <item>Database Administrator</item>
+        <item>System Analyst</item>
+        <item>Network Architect</item>
+        <item>Video Game Developer</item>
+    </string-array>
+</resources>

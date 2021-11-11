@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivityMentee">
+
+    <EditText
+        android:id="@+id/etCollege"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="40dp"
+        android:hint="Enter college name:"
+        android:padding="10dp"
+        tools:text = "VIIT"
+        android:background="@drawable/edit_text_background"/>
+    <EditText
+        android:id="@+id/etCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCollege"
+        android:layout_margin="40dp"
+        android:hint="Enter course pursuing"
+        android:padding="10dp"
+        tools:text="Computer Engineering"
+        android:background="@drawable/edit_text_background"
+        />
+    <EditText
+        android:id="@+id/etYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCourse"
+        android:layout_margin="40dp"
+        android:hint="Enter graduation year"
+        android:padding="10dp"
+        android:inputType="number"
+        tools:text="2022"
+        android:background="@drawable/edit_text_background"
+        />
+    <TextView
+        android:id="@+id/tvField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etYear"
+        android:layout_margin="40dp"
+        android:text="Please Select your Intrest field"
+        android:padding="10dp"
+        android:textColor="#212121"
+        android:background="@drawable/edit_text_background"
+        />
+    <Spinner
+        android:id="@+id/spinnerField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvField"
+        android:layout_margin="40dp"
+        android:padding="10dp"
+        android:entries="@array/Fields"
+        android:background="@drawable/edit_text_background"
+        />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerField"
+        android:layout_margin="80dp"
+        android:text="Submit"
+        android:background="@drawable/btn_background"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
