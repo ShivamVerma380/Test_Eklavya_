@@ -18,13 +18,13 @@ import org.json.JSONException
 import java.io.IOException
 
 class ChatActivity : AppCompatActivity() {
-    var token:String?=null
-    var userId:String?=null
-    var messageRecieveruserId:String?=null
+    var token: String? = null
+    var userId: String? = null
+    var messageRecieveruserId: String? = null
 
-    private lateinit var mAdapter:ChatRVAdapter
+    private lateinit var mAdapter: ChatRVAdapter
     private lateinit var etMessage: EditText
-    private lateinit var sendImg:ImageView
+    private lateinit var sendImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +45,12 @@ class ChatActivity : AppCompatActivity() {
         recyclerView.adapter = mAdapter
 
         sendImg.setOnClickListener {
-            if(etMessage.text.isNullOrEmpty()){
-                Toast.makeText(applicationContext,"Message Cannot Be empty",Toast.LENGTH_SHORT).show()
-            }else{
+            if (etMessage.text.isNullOrEmpty()) {
+                Toast.makeText(applicationContext, "Message Cannot Be empty", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
                 val url = "https://eklavya1.herokuapp.com/api/message/$messageRecieveruserId"
-                Log.d("sendMessageRequest","sendMessageRequestCalled")
+                Log.d("sendMessageRequest", "sendMessageRequestCalled")
                 var client = OkHttpClient()
                 var request = OkHttpRequestAuth(client)
                 val map: HashMap<String, String> = hashMapOf(
@@ -63,15 +64,19 @@ class ChatActivity : AppCompatActivity() {
                 )
                 etMessage.setText("")
                 //Toast.makeText(applicationContext,"token:$token\n userId:$userId",Toast.LENGTH_SHORT).show()
-                request.POST(url,map,token!!,object :Callback{
-                    override fun onResponse(call: Call?, response:okhttp3.Response) {
+                request.POST(url, map, token!!, object : Callback {
+                    override fun onResponse(call: Call?, response: okhttp3.Response) {
                         val responseData = response.body()?.string()
-                        Log.d("responseData","${responseData.toString()}")
+                        Log.d("responseData", "${responseData.toString()}")
                         runOnUiThread {
                             try {
-                                Toast.makeText(applicationContext,"$responseData",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    applicationContext,
+                                    "$responseData",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             } catch (e: JSONException) {
-                                Log.d("In Catch block","$e")
+                                Log.d("In Catch block", "$e")
                                 e.printStackTrace()
                             }
                             //recreate()
@@ -79,6 +84,7 @@ class ChatActivity : AppCompatActivity() {
 
                         }
                     }
+
                     override fun onFailure(call: Call, e: IOException) {
                         TODO("Not yet implemented")
                     }
@@ -86,25 +92,27 @@ class ChatActivity : AppCompatActivity() {
             }
         }
 
+//        recyclerView.post(Runnable { recyclerView.smoothScrollToPosition(mAdapter.itemCount - 1) })
+
     }
 
 
     private fun fetchData() {
         //val url = "https://eklavya1.herokuapp.com/api/messages/$userId"
         val url = "https://eklavya1.herokuapp.com/api/messages/$messageRecieveruserId"
-        Log.d("fetchDataCalled","fetchDataCalled")
+        Log.d("fetchDataCalled", "fetchDataCalled")
         var client = OkHttpClient()
         var request = OkHttpRequestAuth(client)
-        request.GET(url,token!!,object : Callback {
-            override fun onResponse(call: Call?, response:okhttp3.Response) {
+        request.GET(url, token!!, object : Callback {
+            override fun onResponse(call: Call?, response: okhttp3.Response) {
                 val responseData = response.body()?.string()
-                Log.d("responseData","$responseData")
+                Log.d("responseData", "$responseData")
                 runOnUiThread {
                     try {
-                        Log.d("ChatActivityTryBlock","In try block")
+                        Log.d("ChatActivityTryBlock", "In try block")
                         var chatsJsonArray = JSONArray(responseData)
                         val chatsArray = ArrayList<ChatInfo>()
-                        for (i in 0 until chatsJsonArray.length()){
+                        for (i in 0 until chatsJsonArray.length()) {
                             val jsonObject = chatsJsonArray.getJSONObject(i)
                             val chat = ChatInfo(
                                 jsonObject.getString("_id"),
@@ -113,20 +121,25 @@ class ChatActivity : AppCompatActivity() {
                                 jsonObject.getString("message")
                             )
                             chatsArray.add(chat)
-                            Log.d("chat","$chat")
+                            Log.d("chat", "$chat")
                         }
                         mAdapter.updateChat(chatsArray)
-                        Log.d("chatsArray","$chatsArray")
+                        Log.d("chatsArray", "$chatsArray")
                     } catch (e: JSONException) {
-                        Log.d("In Catch block","$e")
+                        Log.d("In Catch block", "$e")
                         e.printStackTrace()
                     }
                 }
             }
+
             override fun onFailure(call: Call, e: IOException) {
                 TODO("Not yet implemented")
             }
 
         })
+    }
+
+    fun goBack(view: android.view.View) {
+        finish()
     }
 }

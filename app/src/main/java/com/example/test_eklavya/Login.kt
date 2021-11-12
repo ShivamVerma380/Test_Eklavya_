@@ -104,6 +104,8 @@ class Login : AppCompatActivity() {
                             editor.putString(EMAIL_KEY,email.text.toString())
                             editor.putString(PASSWORD_KEY,password.text.toString())
                             editor.putString(TOKEN_KEY,token)
+                            editor.putString("user_id", id)
+                            editor.putString("user_role", role)
 
                             editor.apply()
                             if(role.equals("mentor")){
