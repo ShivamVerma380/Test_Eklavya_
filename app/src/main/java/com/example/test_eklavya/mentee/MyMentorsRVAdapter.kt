@@ -3,11 +3,9 @@ package com.example.test_eklavya.mentee
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.test_eklavya.R
 
 
@@ -36,9 +34,8 @@ class MyMentorsRVAdapter(private val listener: MyMentorClicked): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: MyMentorsViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.nameView.text = "Name:${currentItem.name}"
-        holder.companyView.text = "Company:${currentItem.companyName}"
-        holder.designationView.text = "Designation:${currentItem.designation}"
+        holder.nameView.text ="${currentItem.name}"
+        holder.companydesignationView.text = "${currentItem.designation} at ${currentItem.companyName} "
         holder.fieldView.text = "Field:${currentItem.field}"
     }
     fun updateMyMentors(updatedMyMentors: ArrayList<MyMentorsInfo>) {
@@ -50,8 +47,7 @@ class MyMentorsRVAdapter(private val listener: MyMentorClicked): RecyclerView.Ad
 }
 class MyMentorsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameView:TextView = itemView.findViewById(R.id.tvName)
-    val companyView:TextView = itemView.findViewById(R.id.tvCompany)
-    val designationView:TextView = itemView.findViewById(R.id.tvDesignation)
+    val companydesignationView:TextView = itemView.findViewById(R.id.tvCompanyDesignation)
     val fieldView:TextView = itemView.findViewById(R.id.tvField)
 }
 

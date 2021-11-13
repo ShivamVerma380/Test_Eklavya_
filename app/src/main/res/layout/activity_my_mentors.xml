@@ -20,21 +20,23 @@
         android:textColor="#ABCDEF"
         android:padding="5dp"
         />
+
     <TextView
         android:id="@+id/tvMentorsRequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SearchMentors"
-        android:layout_margin="20dp"
-        android:text="My Mentors!!"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
         android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
+        android:text="My Mentors"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SearchMentors" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myMentorsRV"
         android:layout_width="0dp"
