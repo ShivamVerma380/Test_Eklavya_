@@ -1,94 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <TextView
-        android:id="@+id/tvName"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp"
-        tools:text = "Name:Shivam Verma"
-        android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
-    <TextView
-        android:id="@+id/tvCollege"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:text="College:VIIT"
-        android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
-    <TextView
-        android:id="@+id/tvCourse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCollege"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:text="Course:Computer Engineering"
-        android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
-    <TextView
-        android:id="@+id/tvField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCourse"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:text="Field:Web Developer"
-        android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvField"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        tools:text="Status:"
-        android:padding="5dp"
-        android:background="@drawable/edit_text_background"
-        />
-    <ImageView
-        android:id="@+id/approve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_check_24"
-        app:layout_constraintRight_toRightOf="@id/tvStatus"
-        app:layout_constraintTop_toTopOf="@id/tvStatus"
-        app:layout_constraintBottom_toBottomOf="@id/tvStatus"
-        android:layout_marginRight="40dp"
-        android:padding="5dp"
-        />
-    <ImageView
-        android:id="@+id/decline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_round_close_24"
-        app:layout_constraintRight_toRightOf="@id/tvStatus"
-        app:layout_constraintTop_toTopOf="@id/tvStatus"
-        app:layout_constraintBottom_toBottomOf="@id/tvStatus"
-        android:layout_marginRight="5dp"
-        android:padding="5dp"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="16dp"
+            android:padding="5dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shivam Verma" />
+
+        <TextView
+            android:id="@+id/tvCollegeCourse"
+            android:layout_width="366dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="20dp"
+
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvFieldCourse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.422"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Computer Engineering student at VIIT" />
+
+        <TextView
+            android:id="@+id/tvFieldCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvStatus"
+            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Field:Web Developer" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="65dp"
+            android:layout_height="29dp"
+            android:layout_marginEnd="88dp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCollegeCourse"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Status:" />
+
+        <ImageView
+            android:id="@+id/approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_round_check_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvStatus"
+            app:layout_constraintTop_toBottomOf="@+id/tvCollegeCourse"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/decline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_round_close_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+
+            app:layout_constraintStart_toEndOf="@+id/approve"
+            app:layout_constraintTop_toBottomOf="@+id/tvCollegeCourse" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

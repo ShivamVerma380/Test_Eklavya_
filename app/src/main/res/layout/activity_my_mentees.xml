@@ -28,12 +28,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ViewRequests"
         android:layout_margin="20dp"
-        android:text="My Mentees!!"
-        android:fontFamily="cursive"
+        android:text="My Mentees"
         android:textAlignment="center"
         android:textSize="20sp"
         android:padding="5dp"
-        android:background="@drawable/edit_text_background"
+
         />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myMenteesRV"

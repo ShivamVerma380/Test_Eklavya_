@@ -4,13 +4,10 @@ package com.example.test_eklavya.mentor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.test_eklavya.R
-import com.example.test_eklavya.mentee.MyMentorsInfo
 
 
 class MyMenteesRVAdapter(private val listener: MyMenteeClicked): RecyclerView.Adapter<MyMenteesViewHolder>(){
@@ -38,9 +35,8 @@ class MyMenteesRVAdapter(private val listener: MyMenteeClicked): RecyclerView.Ad
 
     override fun onBindViewHolder(holder: MyMenteesViewHolder, position: Int) {
         val currentItem = items[position]
-        holder.nameView.text = "Name:${currentItem.name}"
-        holder.collegeView.text = "Company:${currentItem.collegeName}"
-        holder.courseView.text = "Designation:${currentItem.course}"
+        holder.nameView.text = "${currentItem.name}"
+        holder.collegecourseView.text = "${currentItem.course} student at ${currentItem.collegeName}"
         holder.fieldView.text = "Field:${currentItem.field}"
     }
     fun updateMyMentees(updatedMyMentees: ArrayList<MyMenteesInfo>) {
@@ -52,8 +48,7 @@ class MyMenteesRVAdapter(private val listener: MyMenteeClicked): RecyclerView.Ad
 }
 class MyMenteesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameView:TextView = itemView.findViewById(R.id.tvName)
-    val collegeView:TextView = itemView.findViewById(R.id.tvCollege)
-    val courseView:TextView = itemView.findViewById(R.id.tvCourse)
+    val collegecourseView:TextView = itemView.findViewById(R.id.tvCollegeCourse)
     val fieldView:TextView = itemView.findViewById(R.id.tvField)
 }
 
