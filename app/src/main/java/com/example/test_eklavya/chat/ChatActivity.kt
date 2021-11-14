@@ -91,8 +91,10 @@ class ChatActivity : AppCompatActivity() {
                 })
             }
         }
-
-//        recyclerView.post(Runnable { recyclerView.smoothScrollToPosition(mAdapter.itemCount - 1) })
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.stackFromEnd = true
+        recyclerView.layoutManager = layoutManager
+        recyclerView.scrollToPosition(mAdapter.itemCount - 1);
 
     }
 

@@ -38,9 +38,9 @@ class Login : AppCompatActivity() {
     //key for storing token
     val TOKEN_KEY = "token_key"
 
-    private lateinit var sharedPrefrences:SharedPreferences
-    private lateinit var eml:String
-    private lateinit var pwd:String
+    private lateinit var sharedPrefrences: SharedPreferences
+    private lateinit var eml: String
+    private lateinit var pwd: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +48,14 @@ class Login : AppCompatActivity() {
         email = findViewById(R.id.etEmail)
         password = findViewById(R.id.etPassword)
 
-        sharedPrefrences = getSharedPreferences(shared_Prefs,Context.MODE_PRIVATE)
+        sharedPrefrences = getSharedPreferences(shared_Prefs, Context.MODE_PRIVATE)
 
-        eml = sharedPrefrences.getString(EMAIL_KEY,null).toString()
-        pwd = sharedPrefrences.getString(PASSWORD_KEY,null).toString()
+        eml = sharedPrefrences.getString(EMAIL_KEY, null).toString()
+        pwd = sharedPrefrences.getString(PASSWORD_KEY, null).toString()
 
 
     }
+
     override fun onStart() {
         super.onStart()
         if (eml.isNullOrEmpty() && pwd.isNullOrEmpty()) {
@@ -96,27 +97,27 @@ class Login : AppCompatActivity() {
                             var token = json.getString("token")
                             Log.d("token", "$token")
                             var role = json.getString("role")
-                            Log.d("role","$role")
+                            Log.d("role", "$role")
                             var id = json.getString("_id")
 
                             //save data to local storage
-                            var editor:SharedPreferences.Editor = sharedPrefrences.edit()
-                            editor.putString(EMAIL_KEY,email.text.toString())
-                            editor.putString(PASSWORD_KEY,password.text.toString())
-                            editor.putString(TOKEN_KEY,token)
+                            var editor: SharedPreferences.Editor = sharedPrefrences.edit()
+                            editor.putString(EMAIL_KEY, email.text.toString())
+                            editor.putString(PASSWORD_KEY, password.text.toString())
+                            editor.putString(TOKEN_KEY, token)
                             editor.putString("user_id", id)
                             editor.putString("user_role", role)
 
                             editor.apply()
-                            if(role.equals("mentor")){
+                            if (role.equals("mentor")) {
                                 val intent = Intent(this@Login, MyMentees::class.java)
-                                intent.putExtra("token",token)
-                                intent.putExtra("_id",id)
+                                intent.putExtra("token", token)
+                                intent.putExtra("_id", id)
                                 startActivity(intent)
-                            }else{
+                            } else {
                                 val intent = Intent(this@Login, MyMentors::class.java)
-                                intent.putExtra("token",token)
-                                intent.putExtra("_id",id)
+                                intent.putExtra("token", token)
+                                intent.putExtra("_id", id)
                                 startActivity(intent)
                             }
 
@@ -125,13 +126,16 @@ class Login : AppCompatActivity() {
                             e.printStackTrace()
                         }
                     }
-                }else  {
-                    runOnUiThread{
-                        Toast.makeText(this@Login, "${responseData.toString()}", Toast.LENGTH_SHORT).show()
+                } else {
+                    runOnUiThread {
+                        Toast.makeText(this@Login, "${responseData.toString()}", Toast.LENGTH_SHORT)
+                            .show()
                     }
 
                 }
-            }override fun onFailure(call: Call?, e: IOException?) {
+            }
+
+            override fun onFailure(call: Call?, e: IOException?) {
                 e!!.printStackTrace()
             }
         })
